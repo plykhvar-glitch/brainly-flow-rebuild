@@ -2,7 +2,7 @@
 
 **Live:** https://plykhvar-glitch.github.io/brainly-flow-rebuild/
 
-Five ranked ideas plus a clickable prototype of Brainly's iOS onboarding and paywall, rebuilt in Brainly's own design. One flow for students, one for parents, from the same screens. Prepared by Adapty, October 2026.
+Five ranked ideas plus a clickable prototype of Brainly's iOS onboarding and paywall, rebuilt in Brainly's own design. The flow personalizes itself two ways: **by onboarding answers** (student or parent, goal, subject, school level) and **by the Apple Ads keyword** that brought the install. Prepared by Adapty, October 2026.
 
 ## The five ideas
 

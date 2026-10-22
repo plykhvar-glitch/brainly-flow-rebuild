@@ -123,6 +123,31 @@ a{color:inherit}
 .idea .seeit{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:12.5px;font-weight:700;color:var(--accent-lift)}
 .idea .seeit svg{width:12px;height:12px}
 
+/* ============ two kinds of personalization ============ */
+.pz{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.pz{grid-template-columns:1fr}}
+.pz-c{background:var(--surf);border:1px solid var(--hair);border-radius:22px;padding:26px 26px 22px;box-shadow:0 2px 10px rgba(20,25,30,.04);display:flex;flex-direction:column}
+.pz-c .k{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.pz-c .k i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;letter-spacing:0}
+.pz-c.a .k{color:#2C6410}.pz-c.a .k i{background:#E3F8C9}
+.pz-c.b .k{color:#5B22AE}.pz-c.b .k i{background:var(--bl-purple-soft)}
+.pz-c h3{font-size:22px;line-height:1.2;font-weight:800;letter-spacing:-.025em;margin:12px 0 8px}
+.pz-c p{font-size:14.5px;line-height:1.6;color:var(--ink2)}
+.pz-in{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.pz-in span{font-size:12.5px;font-weight:700;border-radius:14px;padding:5px 11px;background:var(--bg);border:1px solid var(--hair2);color:var(--ink2)}
+.pz-ex{margin-top:14px;background:var(--bg);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.5;color:var(--ink2)}
+.pz-ex b{color:var(--ink)}
+.pz-ex .ar{color:var(--ink3);margin:0 6px}
+.pz-c .go{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--accent-lift);align-self:flex-start}
+.pz-c.b .go{color:#5B22AE}
+.pz-c .go svg{width:12px;height:12px}
+.pz-note{margin-top:16px;font-size:14.5px;line-height:1.6;color:var(--ink2);max-width:760px}
+.pz-note b{color:var(--ink)}
+.idea .fl i.pa{background:#E3F8C9;color:#2C6410}
+.idea .fl i.pk{background:var(--bl-purple-soft);color:#5B22AE}
+.pn-pz{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;border-radius:8px;padding:4px 9px;margin-bottom:12px}
+.pn-pz.a{background:#E3F8C9;color:#2C6410}.pn-pz.b{background:#F1E8FD;color:#5B22AE}
+
 /* ============ keyword section ============ */
 .flow5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:34px}
 @media(max-width:900px){.flow5{grid-template-columns:1fr}}
@@ -566,7 +591,7 @@ a{color:inherit}
   <div class="wrap">
     <div class="eyebrow">Growth Audit · October 2026</div>
     <h1>Brainly</h1>
-    <p class="lede">Five ideas to unlock more revenue from the traffic you already have, with one flow for students and one for the parents your listing now talks to.</p>
+    <p class="lede">Five ideas to unlock more revenue from the traffic you already have, with a flow that personalizes itself two ways: by what people answer in onboarding, and by the Apple Ads search that brought them.</p>
     <div class="meta">Prepared by <b>Adapty</b> · based on your live iOS flow, your App Store listing, brainly.com and your Apple Ads</div>
     <div class="herobtns">
       <button class="ghostbtn" data-demo><span class="pl"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg></span>Watch the 30-second walkthrough</button>
@@ -596,6 +621,27 @@ a{color:inherit}
     <h2>We went through Brainly as someone who just installed it, then rebuilt the parts we think leave money on the table.</h2>
     <p class="body">We power more than <b>30,000 subscription apps</b>, so we see what moves conversion across the market. We installed Brainly, walked from the first screen through sign-up to the plan picker behind “Maybe later”, read your App Store listing and brainly.com, and looked at the searches your Apple Ads show up on. Then we looked for gaps between what you already have and what a new user gets to see.</p>
     <p class="body">Two kinds of people arrive. Students who typed “homework” or “math”, and parents who typed “tutor”. Your listing and your website now speak to parents first; the app still speaks to students only. So we built one flow for each, from the same screens.</p>
+
+    <div class="pz">
+      <div class="pz-c a">
+        <span class="k"><i>1</i>Personalized by their answers</span>
+        <h3>What they tell you in onboarding</h3>
+        <p>Four taps before the price. Every screen after it says the answers back: the loader, the four-week plan, the paywall headline and plan, the offer card, even the home-screen greeting.</p>
+        <div class="pz-in"><span>Student or parent</span><span>Goal</span><span>Subject</span><span>School level</span></div>
+        <div class="pz-ex"><b>Parent · Chemistry · High School · “a grade that’s slipped”</b><span class="ar">→</span>“Bring your teen’s Chemistry grade back up”, on your Brainly Tutor paywall</div>
+        <button class="go" data-pz="answers">See it in the prototype <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="pz-c b">
+        <span class="k"><i>2</i>Personalized by the Apple Ads keyword</span>
+        <h3>What they searched before they installed</h3>
+        <p>The keyword arrives with the install, before they answer anything. The paywall opens on that search, with the proof that fits it. Built from the searches your own ads ran on over the past year.</p>
+        <div class="pz-in"><span>homework help</span><span>photo math helper</span><span>tutor</span><span>gauthofficial</span><span>ged</span></div>
+        <div class="pz-ex"><b>“gauthofficial”</b><span class="ar">→</span>“Answers checked by experts, not just AI”, with your Expert-Verified switch and the “So much better than ChatGPT” review</div>
+        <button class="go" data-pz="keyword">See it in the prototype <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <p class="pz-note"><b>They stack.</b> The keyword decides what the first screen and the paywall lead with; the answers sharpen everything after that. Both run on your existing screens, set up once in Adapty.</p>
+
     <div class="notes">
       <div class="note"><h4>We did not redesign your app</h4>
         <p>Every screen uses your wordmark, your lime button, your condensed paywall headline, your purple subject chips, your gold plan card and your mascot. Only the order and the words around them change.</p></div>
@@ -616,7 +662,7 @@ a{color:inherit}
       <button class="idea" data-jump="welcome" data-role="parent">
         <span class="no">01</span>
         <span>
-          <span class="fl"><i>Student</i><i class="p">Parent</i></span>
+          <span class="fl"><i>Student</i><i class="p">Parent</i><i class="pa">1 · By answers</i></span>
           <h3>Ask “student or parent” first, not last</h3>
           <p>Your App Store listing opens with “Your kid deserves a personal tutor” and brainly.com is written for parents of 7th–12th graders. In the app, “I’m a parent” is the last step of sign-up, and nothing after it changes: a parent gets the same “87% of students report better grades” paywall as a student.</p>
           <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -636,7 +682,7 @@ a{color:inherit}
       <button class="idea" data-jump="subject">
         <span class="no">03</span>
         <span>
-          <span class="fl"><i>Student</i><i class="p">Parent</i></span>
+          <span class="fl"><i>Student</i><i class="p">Parent</i><i class="pa">1 · By answers</i></span>
           <h3>Ask the goal, subject and grade before the price</h3>
           <p>Your tutor asks “Which subject are we working on today?” and “What level of school are you currently in?”, but only after payment. brainly.com asks “What’s the goal for your teen this year?” The paywall uses none of it. Ask first, then say it back on the paywall.</p>
           <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -646,7 +692,7 @@ a{color:inherit}
       <button class="idea" data-jump="kwpay">
         <span class="no">04</span>
         <span>
-          <span class="fl"><i>Student</i><i class="p">Parent</i></span>
+          <span class="fl"><i>Student</i><i class="p">Parent</i><i class="pk">2 · By Apple Ads keyword</i></span>
           <h3>Open the paywall on the search that brought them</h3>
           <p>Over the past year your Apple Ads ran on “homework”, “tutor”, “photo math helper” and competitor names like “gauthofficial”. Every one of those installs saw the same “87% of students” paywall, with three small avatars where your 4.7 from 284K ratings could be. One paywall per search group, each with the proof that fits it.</p>
           <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -748,7 +794,7 @@ a{color:inherit}
     <div class="band">
       <div class="txt">
         <div class="lab">Potential outcome</div>
-        <p>Together, the five work on three moments: who the first screen is talking to, what the paywall says back to them and to the search that brought them, and what happens when they say “maybe later”.</p>
+        <p>Two kinds of personalization, by onboarding answers and by Apple Ads keyword, plus two fixes around them: the account moves after the purchase, and “maybe later” gets one clear offer.</p>
       </div>
       <div class="nums">
         <div><b>+25%</b><span>CR to purchase</span></div>
@@ -1488,9 +1534,12 @@ home:{ctx:true,t:'Your home screen',
  kept:'Untouched, except the greeting now names the subject they picked, so the first tap after sign-up goes straight to it.'}
 };
 function outBlock(lab,val){ return '<div class="pn-out"><div class="lab">'+lab+'</div><div class="v">'+val+'</div></div>'; }
+var PZ={welcome:'a',goal:'a',subject:'a',grade:'a',loader:'a',payoff:'a',paywall:'a',offer:'a',home:'a',kwpay:'b'};
 function paintPanel(){
   var d=PANEL[cur]; if(!d) return;
   var h='';
+  if(PZ[cur]==='a') h+='<span class="pn-pz a">1 · Personalized by their onboarding answers</span>';
+  if(PZ[cur]==='b') h+='<span class="pn-pz b">2 · Personalized by the Apple Ads keyword</span>';
   if(d.ctx){
     h+='<div class="pn-n ctx">Context · no change proposed</div><h3 class="pn-t">'+d.t+'</h3><div class="pn-kept">'+d.kept+'</div>';
   } else {
@@ -1513,6 +1562,9 @@ function showView(v){
 }
 document.querySelectorAll('[data-view]').forEach(function(b){ b.addEventListener('click',function(){ showView(b.dataset.view); }); });
 document.querySelectorAll('.idea[data-jump]').forEach(function(b){ b.addEventListener('click',function(){ if(b.dataset.role) setRole(b.dataset.role); showView('proto'); jump(b.dataset.jump); }); });
+document.querySelectorAll('[data-pz]').forEach(function(b){ b.addEventListener('click',function(){
+  if(b.dataset.pz==='keyword'){ S.kw='sw'; S0.kw='sw'; showView('proto'); jump('kwpay'); }
+  else { S.goal='slip'; S.subj='ch'; S.grade='hs'; setRole('parent'); showView('proto'); jump('paywall'); } }); });
 document.querySelectorAll('[data-jump-kw]').forEach(function(b){ b.addEventListener('click',function(){ S.kw=b.dataset.jumpKw; S0.kw=S.kw; showView('proto'); jump('kwpay'); }); });
 document.querySelectorAll('[data-flow]').forEach(function(b){ b.addEventListener('click',function(){ setRole(b.dataset.flow); showView('proto'); jump('welcome'); }); });
 document.querySelectorAll('[data-demo]').forEach(function(b){ b.addEventListener('click',function(){ showView('proto'); startDemo(); }); });
