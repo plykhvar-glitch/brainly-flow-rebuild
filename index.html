@@ -49,6 +49,12 @@ a{color:inherit}
 .nav-links button{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;color:var(--ink3);transition:.16s}
 .nav-links button:hover{color:var(--ink)}
 .nav-links button.on{color:var(--ink);background:#fff;box-shadow:0 1px 4px rgba(20,25,30,.08)}
+.nav-links button{display:inline-flex;align-items:center;gap:6px}
+.nav-links .nf{width:8px;height:8px;border-radius:50%;display:block}
+.nav-links .nf.a{background:#5BC81F}.nav-links .nf.b{background:var(--bl-purple)}
+@media(max-width:820px){.nav-links .nl{display:none}}
+.nav-links button{white-space:nowrap}
+@media(max-width:520px){.nav-brand b{display:none}.nav-links button{padding:7px 10px}.nav-in{gap:8px}}
 @media(max-width:640px){.nav-brand span{display:none}}
 .view{display:none}
 .view.on{display:block}
@@ -579,7 +585,8 @@ a{color:inherit}
     </div>
     <div class="nav-links">
       <button class="on" data-view="over">Overview</button>
-      <button data-view="proto">Prototype</button>
+      <button data-navflow="ans"><i class="nf a"></i>Flow 1<span class="nl"> · Onboarding answers</span></button>
+      <button data-navflow="asa"><i class="nf b"></i>Flow 2<span class="nl"> · Apple Ads keyword</span></button>
     </div>
   </div>
 </div>
@@ -1364,7 +1371,7 @@ var ORDERS={ans:['welcome','goal','subject','grade','loader','payoff','paywall',
 var ORDER=ORDERS.ans;
 function setFlow(f){ S.flow=f; S0.flow=f; ORDER=ORDERS[f]; setSeg('segFlow','flow',f);
   document.getElementById('segRole').classList.toggle('hidden',f!=='ans');
-  document.getElementById('kwbar').classList.toggle('hidden',f!=='asa'); syncScreen(); paintChips(); paintPanel(); }
+  document.getElementById('kwbar').classList.toggle('hidden',f!=='asa'); syncScreen(); paintChips(); paintPanel(); if(typeof paintNav==='function') paintNav(); }
 var LABEL={welcome:'Student or parent',goal:'Goal',subject:'Subject',grade:'School level',loader:'Loader',payoff:'Payoff',paywall:'Paywall',kwpay:'Keyword paywall',offer:'Offer on “Maybe later”',signup:'Sign-up',home:'Home'};
 var scr={}, hist=[], cur='welcome', loadTimers=[];
 document.querySelectorAll('.scr').forEach(function(s){ scr[s.dataset.id]=s; });
@@ -1560,9 +1567,12 @@ function showView(v){
   if(v!=='proto') stopDemo();
   document.querySelectorAll('.view').forEach(function(x){ x.classList.remove('on'); });
   document.getElementById('view-'+v).classList.add('on');
-  document.querySelectorAll('.nav-links button[data-view]').forEach(function(b){ b.classList.toggle('on', b.dataset.view===v); });
-  window.scrollTo(0,0);
+  window.scrollTo(0,0); paintNav();
 }
+function paintNav(){ var pv=document.getElementById('view-proto').classList.contains('on');
+  document.querySelectorAll('.nav-links button[data-view]').forEach(function(b){ b.classList.toggle('on', !pv && b.dataset.view==='over'); });
+  document.querySelectorAll('.nav-links button[data-navflow]').forEach(function(b){ b.classList.toggle('on', pv && b.dataset.navflow===S.flow); }); }
+document.querySelectorAll('[data-navflow]').forEach(function(b){ b.addEventListener('click',function(){ stopDemo(); showView('proto'); setFlow(b.dataset.navflow); jump(ORDER[0]); }); });
 document.querySelectorAll('[data-view]').forEach(function(b){ b.addEventListener('click',function(){ showView(b.dataset.view); }); });
 document.querySelectorAll('.idea[data-jump]').forEach(function(b){ b.addEventListener('click',function(){ if(b.dataset.role) setRole(b.dataset.role); showView('proto'); jump(b.dataset.jump); }); });
 document.querySelectorAll('[data-pz]').forEach(function(b){ b.addEventListener('click',function(){
@@ -1576,7 +1586,7 @@ scr.welcome.classList.add('is-active');
 syncScreen(); chrome(); paintChips(); paintPanel();
 if(/[?&]open=proto/.test(location.search)) showView('proto');
 /* GitHub Pages lets browsers keep this page for 10 minutes; if a newer build is live, reload onto it */
-var BUILD='b5';
+var BUILD='b6';
 fetch(location.pathname+'?cb='+Date.now(),{cache:'no-store'}).then(function(r){ return r.text(); }).then(function(h){
   var m=h.match(/var BUILD='([^']+)'/); if(m && m[1]!==BUILD){ var q=new URLSearchParams(location.search); q.set('v',m[1]); location.replace(location.pathname+'?'+q.toString()); }
 }).catch(function(){});
