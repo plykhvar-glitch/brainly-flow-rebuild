@@ -1575,6 +1575,11 @@ applyStatic();
 scr.welcome.classList.add('is-active');
 syncScreen(); chrome(); paintChips(); paintPanel();
 if(/[?&]open=proto/.test(location.search)) showView('proto');
+/* GitHub Pages lets browsers keep this page for 10 minutes; if a newer build is live, reload onto it */
+var BUILD='b5';
+fetch(location.pathname+'?cb='+Date.now(),{cache:'no-store'}).then(function(r){ return r.text(); }).then(function(h){
+  var m=h.match(/var BUILD='([^']+)'/); if(m && m[1]!==BUILD){ var q=new URLSearchParams(location.search); q.set('v',m[1]); location.replace(location.pathname+'?'+q.toString()); }
+}).catch(function(){});
 </script>
 </body>
 </html>
